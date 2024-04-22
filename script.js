@@ -24,6 +24,8 @@ function translateWord(word) {
         translatedWord = 'hola';
     } else if (word.toLowerCase() === 'world') {
         translatedWord = 'mundo';
+    } else if (word.toLowerCase() === 'code') {
+        translatedWord = 'código';
     }
 
     return translatedWord;
