@@ -100,6 +100,6 @@ body.swal2-popup .swal2-confirm:hover {
     background-color: #dedddd;
 }
 
-.swal2-popup .swal2-confirm:active {
+body .swal2-popup .swal2-confirm:active {
     transform: scale(0.95);
 }
