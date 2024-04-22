@@ -2,80 +2,16 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Traductor</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        var googleTranslate;
+    <link rel="stylesheet" href="style.css">
 
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-        }
-
-        function translateTextarea() {
-            var inputText = document.getElementById('input_text').value;
-            var languageToTranslate = 'es'; // El idioma al que se quiere traducir
-
-            // Expresión regular para detectar palabras en inglés
-            var englishWordRegex = /\b([a-zA-Z]+)\b/g;
-
-            // Reemplazar las palabras en inglés por su traducción
-            var translatedText = inputText.replace(englishWordRegex, function(match) {
-                return translateWord(match);
-            });
-
-            // Mostrar el texto traducido
-            document.getElementById('input_text').value = translatedText;
-        }
-
-        function translateWord(word) {
-            // Traduce una palabra de inglés a español
-            var translatedWord = word; // Por defecto, mantener la palabra original
-
-            // Lógica de traducción real aquí (simulado para esta demostración)
-            // En una implementación real, se usaría la API de Google Translate
-            if (word.toLowerCase() === 'hello') {
-                translatedWord = 'hola';
-            } else if (word.toLowerCase() === 'world') {
-                translatedWord = 'mundo';
-            }
-
-            return translatedWord;
-        }
-
-        var timer;
-        function detectAndTranslate() {
-            clearTimeout(timer);
-            timer = setTimeout(function() {
-                translateTextarea();
-            }, 2000); // Esperar 2 segundos de inactividad antes de traducir
-        }
-
-        window.onload = function() {
-            googleTranslateElementInit();
-
-            // Inicializar la variable googleTranslate
-            googleTranslate = {
-                translate: function(text, sourceLang, targetLang, callback) {
-                    // Simular la traducción con un simple reemplazo de texto
-                    // En una implementación real, se usaría la API de Google Translate
-                    callback(text);
-                }
-            };
-
-            // Agregar un evento al textarea para detectar y traducir en tiempo real
-            var input = document.getElementById('input_text');
-
-            input.addEventListener('input', function() {
-                detectAndTranslate();
-            });
-        };
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
+
     <div class="container">
         <div id="google_translate_element"></div><br>
 
@@ -83,44 +19,10 @@
 
     </div>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #dedddd;
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-            border-radius: 20px;
-            max-width: 500px;
-            margin: 0 auto;
-            padding-bottom: 10px;
-            box-shadow: 0 0 100px rgba(0, 0, 0, 1);
-        }
-
-        textarea {
-            width: 370px;
-            height: 170px;
-            border-radius: 20px;
-            border: none;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-    </style>
-
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
 </body>
 
 </html>
