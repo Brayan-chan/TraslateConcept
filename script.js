@@ -6,11 +6,9 @@ function googleTranslateElementInit() {
 
 function translateTextarea() {
     var inputText = document.getElementById('input_text').value;
-    var languageToTranslate = 'es'; // El idioma al que se quiere traducir
+    var languageToTranslate = 'es';
 
-    // Traducir el contenido del textarea
     googleTranslate.translate(inputText, 'en', languageToTranslate, function (translatedText) {
-        // Mostrar el texto traducido
         document.getElementById('translated_content').innerText = translatedText;
     });
 }
@@ -18,20 +16,15 @@ function translateTextarea() {
 window.onload = function () {
     googleTranslateElementInit();
 
-    // Inicializar la variable googleTranslate
     googleTranslate = {
         translate: function (text, sourceLang, targetLang, callback) {
-            // Simular la traducción con un simple reemplazo de texto
-            // En una implementación real, se usaría la API de Google Translate
             var translatedText = text.replace(/\b(en)\b/g, 'es');
             callback(translatedText);
         }
     };
 
-    // Traducir una vez al cargar la página
     translateTextarea();
 
-    // Agregar un evento al textarea para traducir una vez que el usuario haya terminado de escribir
     var input = document.getElementById('input_text');
 
     input.addEventListener('keyup', function () {
@@ -53,4 +46,4 @@ document.getElementById('copy_button').addEventListener('click', function() {
         icon: 'success',
         confirmButtonText: 'Ok'
     });
-}); 
+});
